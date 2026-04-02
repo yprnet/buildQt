@@ -2,7 +2,7 @@
 @cd /d %~dp0
 
 :: 设置Qt版本
-SET QT_VERSION=6.10.2
+SET QT_VERSION=6.11.0
 
 :: 设置MinGW版本代号
 SET MinGW_VERSION=llvm-mingw22.1.2_64_UCRT_RP
