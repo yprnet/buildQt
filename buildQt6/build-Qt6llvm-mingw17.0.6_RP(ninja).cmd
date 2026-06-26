@@ -43,7 +43,7 @@ cd ..
 ::编译qttools
 mkdir build-qttools
 cd build-qttools
-cmake %SRC_qttools%\CMakeLists.txt -G "Ninja" -DCMAKE_INSTALL_PREFIX=%INSTALL_DIR% -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=%INSTALL_DIR%\lib\cmake"
+cmake %SRC_qttools%\CMakeLists.txt -G "Ninja" -DCMAKE_INSTALL_PREFIX=%INSTALL_DIR% -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=%INSTALL_DIR%\lib\cmake" -DFEATURE_linguist=ON -DQT_BUILD_TOOLS=ON -DQT_STATIC_BUILD=ON
 cmake --build . --parallel
 cmake --install .
 cd ..
