@@ -34,6 +34,8 @@ call %SRC_QT%\configure.bat -static -static-runtime -release -prefix %INSTALL_DI
 
 :: 编译(不要忘记点)
 cmake --build . --parallel
+:: 单独强制构建所有linguist工具，兜底不丢失
+cmake --build . --parallel 4 --target Qt6LinguistTools lupdate lrelease linguist lcheck ltext2id
 
 :: 安装(不要忘记点)
 cmake --install .
