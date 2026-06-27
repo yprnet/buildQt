@@ -24,6 +24,16 @@ jobs:
         python-version: '3.13'
         architecture: 'x64'
 
+    # 安装msvc
+    - name: Add MSBuild to PATH
+      uses: microsoft/setup-msbuild@v3
+      with:
+        msbuild-architecture: x64
+
+    # 安装vsdevenv
+    - name: Setup vsdevenv
+      uses: seanmiddleditch/gha-setup-vsdevenv@master
+
     # 安装 MinGW64    
     - name: Setup MinGW64
       run: |
