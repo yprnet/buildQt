@@ -10,6 +10,9 @@ SET MSVC_VERSION=msvc2022_64
 :: 设置MSVC2022环境
 CALL "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" amd64
 
+:: 设置Perl
+SET PATH=D:\a\buildQt\Strawberry\c\bin;D:\a\buildQt\Strawberry\perl\site\bin;D:\a\buildQt\Strawberry\perl\bin;%PATH%
+
 :: 设置Qt文件夹路径
 SET QT_PATH=D:\a\buildQt\Qt
 
