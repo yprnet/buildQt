@@ -44,7 +44,7 @@ cd ..
 mkdir build-qttools
 cd build-qttools
 cmake %SRC_qttools% -G "Ninja" -DCMAKE_INSTALL_PREFIX=%INSTALL_DIR% -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=%INSTALL_DIR% -DFEATURE_linguist=ON -DFEATURE_linguist_tools=ON -DQT_STATIC_BUILD=ON
-cmake --build . --parallel
+cmake --build . --parallel --target all
 cmake --install .
 cd ..
 
@@ -52,7 +52,7 @@ cd ..
 mkdir build-qttranslations
 cd build-qttranslations
 cmake %SRC_qttranslations% -G "Ninja" -DCMAKE_INSTALL_PREFIX=%INSTALL_DIR% -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=%INSTALL_DIR%
-cmake --build . --parallel
+cmake --build . --parallel --target all
 cmake --install .
 cd ..
 
@@ -60,7 +60,7 @@ cd ..
 mkdir build-qtsvg
 cd build-qtsvg
 cmake %SRC_qtsvg% -G "Ninja" -DCMAKE_INSTALL_PREFIX=%INSTALL_DIR% -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=%INSTALL_DIR%
-cmake --build . --parallel
+cmake --build . --parallel --target all
 cmake --install .
 cd ..
 
