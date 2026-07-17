@@ -31,6 +31,9 @@ copy %~dp0\patches\unique_any.hpp %SRC_QT%\qtlocation\src\3rdparty\mapbox-gl-nat
 ::替换avfcamerautility.mm(QtMultiMedia C++17 构建修复)
 copy %~dp0\patches\avfcamerautility.mm %SRC_QT%\qtmultimedia\src\plugins\avfoundation\camera\avfcamerautility.mm /Y
 
+::替换Makefile.unix.win32(使用 _WIN32_WINNT 的默认值为 0x0A00 的新版 MinGW-w64 上 Qt 5.15 系列无法构建)
+copy %~dp0\patches\Makefile.unix.win32 %SRC_QT%\qtbase\qmake\Makefile.unix.win32 /Y
+
 :: 补充设置qtbase\bin和gnuwin32\bin
 SET PATH=%SRC_QT%\qtbase\bin;%SRC_QT%\gnuwin32\bin;%PATH%
 

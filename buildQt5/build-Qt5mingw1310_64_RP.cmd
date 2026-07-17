@@ -28,6 +28,9 @@ SET SRC_qtsvg="%QT_PATH%\%QT_VERSION%\qtsvg-everywhere-src-%QT_VERSION%"
 copy %~dp0\patches\qfilesystemengine_win.cpp %SRC_qtbase%\src\corelib\io\qfilesystemengine_win.cpp /Y
 copy %~dp0\patches\main.c %SRC_qttools%\src\assistant\qcollectiongenerator\main.c /Y
 
+::替换Makefile.unix.win32(使用 _WIN32_WINNT 的默认值为 0x0A00 的新版 MinGW-w64 上 Qt 5.15 系列无法构建)
+copy %~dp0\patches\Makefile.unix.win32 %SRC_qtbase%\qmake\Makefile.unix.win32 /Y
+
 :: 设置安装文件夹目录
 SET INSTALL_DIR="%QT_PATH%\%QT_VERSION%-static\%MinGW_VERSION%"
 SET QMAKE_PATH=%INSTALL_DIR%\bin\qmake.exe
