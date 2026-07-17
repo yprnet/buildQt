@@ -34,6 +34,9 @@ copy %~dp0\patches\avfcamerautility.mm %SRC_QT%\qtmultimedia\src\plugins\avfound
 ::替换Makefile.unix.win32(使用 _WIN32_WINNT 的默认值为 0x0A00 的新版 MinGW-w64 上 Qt 5.15 系列无法构建)
 copy %~dp0\patches\Makefile.unix.win32 %SRC_QT%\qtbase\qmake\Makefile.unix.win32 /Y
 
+::替换HandleAllocator.cpp(使用GCC11或更新的版本无法构建Qt 5.15系列上的angle)
+copy %~dp0\patches\HandleAllocator.cpp %SRC_QT%\qtbase\src\3rdparty\angle\src\libANGLE\HandleAllocator.cpp /Y
+
 :: 补充设置qtbase\bin和gnuwin32\bin
 SET PATH=%SRC_QT%\qtbase\bin;%SRC_QT%\gnuwin32\bin;%PATH%
 
