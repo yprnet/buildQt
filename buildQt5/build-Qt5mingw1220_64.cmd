@@ -25,6 +25,9 @@ SET SRC_QT="%QT_PATH%\%QT_VERSION%\qt-everywhere-src-%QT_VERSION%"
 copy %~dp0\patches\qfilesystemengine_win.cpp %SRC_QT%\qtbase\src\corelib\io\qfilesystemengine_win.cpp /Y
 copy %~dp0\patches\main.c %SRC_QT%\qttools\src\assistant\qcollectiongenerator\main.c /Y
 
+::替换unique_any.hpp(Clang mapboxgl 构建修复)
+copy %~dp0\patches\unique_any.hpp %SRC_QT%\qtlocation\src\3rdparty\mapbox-gl-native\include\mbgl\util\unique_any.hpp /Y
+
 :: 补充设置qtbase\bin和gnuwin32\bin
 SET PATH=%SRC_QT%\qtbase\bin;%SRC_QT%\gnuwin32\bin;%PATH%
 
