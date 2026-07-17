@@ -38,8 +38,8 @@ copy %~dp0\patches\Makefile.unix.win32 %SRC_QT%\qtbase\qmake\Makefile.unix.win32
 copy %~dp0\patches\HandleAllocator.cpp %SRC_QT%\qtbase\src\3rdparty\angle\src\libANGLE\HandleAllocator.cpp /Y
 
 ::替换hlsl_bytecode_header.prf、qsgd3d12engine.cpp(Qt5.15系列的d3d12 Qt Quick Scene Graph插件无法找到fxc，并且找不 _uuidof 函数)
-copy %~dp0\patches\hlsl_bytecode_header.prf %SRC_QT%\qtdeclarative\features\hlsl_bytecode_header.prf /Y
-copy %~dp0\patches\qsgd3d12engine.cpp %SRC_QT%\qtdeclarative\src\plugins\scenegraph\d3d12\qsgd3d12engine.cpp /Y
+::copy %~dp0\patches\hlsl_bytecode_header.prf %SRC_QT%\qtdeclarative\features\hlsl_bytecode_header.prf /Y
+::copy %~dp0\patches\qsgd3d12engine.cpp %SRC_QT%\qtdeclarative\src\plugins\scenegraph\d3d12\qsgd3d12engine.cpp /Y
 
 :: 补充设置qtbase\bin和gnuwin32\bin
 SET PATH=%SRC_QT%\qtbase\bin;%SRC_QT%\gnuwin32\bin;%PATH%
@@ -56,7 +56,7 @@ rmdir /s /q "%BUILD_DIR%"
 mkdir "%BUILD_DIR%" && cd /d "%BUILD_DIR%"
 
 :: configure
-call %SRC_QT%\configure.bat -static -static-runtime -release -prefix %INSTALL_DIR% -nomake examples -nomake tests -skip qtwebengine -opensource -confirm-license -qt-libpng -qt-libjpeg -qt-zlib -qt-pcre -qt-freetype -schannel -opengl desktop -platform win32-g++
+call %SRC_QT%\configure.bat -static -static-runtime -release -prefix %INSTALL_DIR% -nomake examples -nomake tests -skip qtwebengine -opensource -confirm-license -qt-libpng -qt-libjpeg -qt-zlib -qt-pcre -qt-freetype -schannel -opengl desktop -platform win32-g++ -no-feature-d3d12
 
 :: 编译、安装
 mingw32-make -j%NUM_THRED%         
