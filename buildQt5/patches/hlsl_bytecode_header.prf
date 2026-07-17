@@ -1,0 +1,15 @@
+
+# This variable is from a patch from Fsu0413. In order not to conflict with Qt defined one we use custom prefix
+mingw: FSU0413_QTDECLARATIVE_FEATURES_FXC = $$(DXSDK_DIR)/Utilities/bin/x64/fxc.exe
+else: FSU0413_QTDECLARATIVE_FEATURES_FXC = fxc.exe
+
+for (SHADER, HLSL_SHADERS) {
+    INPUT = $$eval($${SHADER}.input)
+    fxc_$${SHADER}.input = $$INPUT
+    fxc_$${SHADER}.commands = $$FSU0413_QTDECLARATIVE_FEATURES_FXC /nologo /E $$eval($${SHADER}.entry) /T $$eval($${SHADER}.type) /Fh ${QMAKE_FILE_OUT} ${QMAKE_FILE_NAME}
+    fxc_$${SHADER}.output = $$eval($${SHADER}.header)
+    fxc_$${SHADER}.dependency_type = TYPE_C
+    fxc_$${SHADER}.variable_out = HEADERS
+    fxc_$${SHADER}.CONFIG += target_predeps
+    QMAKE_EXTRA_COMPILERS += fxc_$${SHADER}
+}

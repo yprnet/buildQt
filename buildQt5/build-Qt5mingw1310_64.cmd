@@ -37,6 +37,10 @@ copy %~dp0\patches\Makefile.unix.win32 %SRC_QT%\qtbase\qmake\Makefile.unix.win32
 ::替换HandleAllocator.cpp(使用GCC11或更新的版本无法构建Qt 5.15系列上的angle)
 copy %~dp0\patches\HandleAllocator.cpp %SRC_QT%\qtbase\src\3rdparty\angle\src\libANGLE\HandleAllocator.cpp /Y
 
+::替换hlsl_bytecode_header.prf、qsgd3d12engine.cpp(Qt5.15系列的d3d12 Qt Quick Scene Graph插件无法找到fxc，并且找不 _uuidof 函数)
+copy %~dp0\patches\hlsl_bytecode_header.prf %SRC_QT%\qtdeclarative\features\hlsl_bytecode_header.prf /Y
+copy %~dp0\patches\qsgd3d12engine.cpp %SRC_QT%\qtdeclarative\src\plugins\scenegraph\d3d12\qsgd3d12engine.cpp /Y
+
 :: 补充设置qtbase\bin和gnuwin32\bin
 SET PATH=%SRC_QT%\qtbase\bin;%SRC_QT%\gnuwin32\bin;%PATH%
 
