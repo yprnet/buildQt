@@ -28,6 +28,9 @@ copy %~dp0\patches\main.c %SRC_QT%\qttools\src\assistant\qcollectiongenerator\ma
 ::替换unique_any.hpp(Clang mapboxgl 构建修复)
 copy %~dp0\patches\unique_any.hpp %SRC_QT%\qtlocation\src\3rdparty\mapbox-gl-native\include\mbgl\util\unique_any.hpp /Y
 
+::替换avfcamerautility.mm(QtMultiMedia C++17 构建修复)
+copy %~dp0\patches\avfcamerautility.mm %SRC_QT%\qtmultimedia\src\plugins\avfoundation\camera\avfcamerautility.mm /Y
+
 :: 补充设置qtbase\bin和gnuwin32\bin
 SET PATH=%SRC_QT%\qtbase\bin;%SRC_QT%\gnuwin32\bin;%PATH%
 
